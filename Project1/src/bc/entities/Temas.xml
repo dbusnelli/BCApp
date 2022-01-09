@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Temas"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TEMAS"
+  AliasName="Temas"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Sid"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="SID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TEMAS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Teama"
+    Precision="255"
+    ColumnName="TEAMA"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TEMAS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Descripcion"
+    Precision="255"
+    ColumnName="DESCRIPCION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TEMAS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Incidencias"
+    Precision="255"
+    ColumnName="INCIDENCIAS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TEMAS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FkEstado"
+    Precision="10"
+    Scale="0"
+    ColumnName="FK_ESTADO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TEMAS"/>
+  <AccessorAttribute
+    Name="Notas"
+    Association="bc.entities.NotasFk1Assoc"
+    AssociationEnd="bc.entities.NotasFk1Assoc.Notas"
+    AssociationOtherEnd="bc.entities.NotasFk1Assoc.Temas"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Estados"
+    Association="bc.entities.TemasFk1Assoc"
+    AssociationEnd="bc.entities.TemasFk1Assoc.Estados"
+    AssociationOtherEnd="bc.entities.TemasFk1Assoc.Temas"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="TemasPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TEMAS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bc.entities.Temas.Sid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TemasFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ESTADO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TEMAS_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bc.entities.Temas.FkEstado"/>
+    </AttrArray>
+  </Key>
+</Entity>
